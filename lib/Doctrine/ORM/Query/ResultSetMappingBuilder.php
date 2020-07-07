@@ -391,7 +391,7 @@ class ResultSetMappingBuilder extends ResultSetMapping
                 $relation  = null;
 
                 if (strpos($fieldName, '.') !== false) {
-                    list($relation, $fieldName) = explode('.', $fieldName);
+                    [$relation, $fieldName] = explode('.', $fieldName);
                 }
 
                 if (isset($classMetadata->associationMappings[$relation])) {
