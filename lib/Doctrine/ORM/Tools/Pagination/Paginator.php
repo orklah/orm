@@ -24,6 +24,7 @@ use Doctrine\ORM\Query;
 use Doctrine\ORM\Query\Parser;
 use Doctrine\ORM\Query\ResultSetMapping;
 use Doctrine\ORM\QueryBuilder;
+use Traversable;
 use function array_map;
 
 /**
@@ -32,6 +33,8 @@ use function array_map;
  * @author Pablo Díez <pablodip@gmail.com>
  * @author Benjamin Eberlei <kontakt@beberlei.de>
  * @license New BSD
+ *
+ * @template T
  */
 class Paginator implements \Countable, \IteratorAggregate
 {
@@ -133,6 +136,8 @@ class Paginator implements \Countable, \IteratorAggregate
 
     /**
      * {@inheritdoc}
+     *
+     * @return Traversable<mixed, T>
      */
     public function getIterator()
     {
